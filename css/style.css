@@ -1,11 +1,11 @@
 .column {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .row {
     display: flex;
     border: solid;
-    padding: 20px;
+    height: 40px;
+    width: 40px;
 }
