@@ -1,11 +1,17 @@
 const body = document.querySelector("body");
 const grid = document.querySelector(".grid");
+const divBtn = document.createElement("div");
 const button = document.createElement("button");
 
 button.textContent = "Set a Grid Number!";
 
-body.appendChild(button);
-body.insertBefore(button,grid);
+body.appendChild(divBtn);
+body.insertBefore(divBtn,grid);
+divBtn.append(button);
+
+button.addEventListener("click", () => {
+    prompt("Choose a Number:");
+});
 
 
 for (let i = 1; i <= 16; i++) {
@@ -27,3 +33,8 @@ for (const row of rows) {
         // row.style.backgroundColor = "red";
     });
 };
+
+function askNumber() {
+    prompt("Choose a Number:");
+};
+
