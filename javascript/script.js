@@ -12,20 +12,28 @@ body.insertBefore(divBtn,grid);
 divBtn.append(button);
 
 button.addEventListener("click", () => {
-    prompt("Choose a Number:");
+   userAnswer = prompt("Choose a Number:");
+   number = Number(userAnswer);
+   gridLoop(number);
 });
 
+function gridLoop(a) {
+    if (a === undefined) {
+        a = 16;
+    }
 
-for (let i = 1; i <= 16; i++) {
+for (let i = 1; i <= a; i++) {
     let columnDiv = document.createElement("div");
     columnDiv.classList.toggle("column");
     grid.appendChild(columnDiv);
-    for (let j = 1; j <= 16; j++) {
+    for (let j = 1; j <= a; j++) {
         let rowDiv = document.createElement("div");
         rowDiv.classList.toggle("row");
         columnDiv.appendChild(rowDiv);
     }
-}
+}};
+
+gridLoop();
 
 const columns = document.querySelectorAll(".column");
 const rows = document.querySelectorAll(".row");
