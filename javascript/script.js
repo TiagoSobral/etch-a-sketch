@@ -5,6 +5,8 @@ const button = document.createElement("button");
 
 button.textContent = "Set a Grid Number!";
 
+divBtn.classList.toggle("button");
+
 body.appendChild(divBtn);
 body.insertBefore(divBtn,grid);
 divBtn.append(button);
