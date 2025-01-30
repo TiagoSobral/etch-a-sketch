@@ -1,4 +1,12 @@
+const body = document.querySelector("body");
 const grid = document.querySelector(".grid");
+const button = document.createElement("button");
+
+button.textContent = "Set a Grid Number!";
+
+body.appendChild(button);
+body.insertBefore(button,grid);
+
 
 for (let i = 1; i <= 16; i++) {
     let columnDiv = document.createElement("div");
@@ -16,6 +24,6 @@ const rows = document.querySelectorAll(".row");
 
 for (const row of rows) {
     row.addEventListener("mouseenter", () => {
-        row.style.backgroundColor = "red";
+        // row.style.backgroundColor = "red";
     });
 };
