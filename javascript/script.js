@@ -52,7 +52,9 @@ const rows = document.querySelectorAll(".row");
 
 for (const row of rows) {
     row.addEventListener("mouseenter", () => {
-        // row.style.backgroundColor = "red";
+        randomRGB();
+        console.log(colorArray[0])
+        row.style.backgroundColor = `rgb(${colorArray[0]},${colorArray[1]},${colorArray[2]})`;
     });
 };
 
@@ -60,3 +62,11 @@ function askNumber() {
     prompt("Choose a Number:");
 };
 
+function randomRGB () {
+    colorArray = [];
+    let max = 255;
+    for (let i = 1; i <= 3; i++) {
+       rndColor = Math.floor(Math.random() * max)
+      colorArray.push(rndColor); 
+    }
+};
