@@ -12,13 +12,20 @@ body.insertBefore(divBtn,grid);
 divBtn.append(button);
 
 button.addEventListener("click", () => {
-   userAnswer = prompt("Choose a Number:");
-   number = Number(userAnswer);
-   const allColumns = document.querySelectorAll(".column");
-   for (element of allColumns) {
-    grid.removeChild(element);
-   };
-   gridLoop(number);
+   userAnswer = prompt("Choose a Number from 1-100:");
+   number = Number(userAnswer); 
+   alert(number);
+    if (number > 100 || number < 1) {
+        alert("You chose outside the range! Try again!");
+    }
+    else {
+        const allColumns = document.querySelectorAll(".column");
+        for (element of allColumns) {
+            grid.removeChild(element);
+        };
+
+        gridLoop(number);
+    };
 });
 
 function gridLoop(a) {
@@ -30,6 +37,7 @@ for (let i = 1; i <= a; i++) {
     let columnDiv = document.createElement("div");
     columnDiv.classList.toggle("column");
     grid.appendChild(columnDiv);
+    
     for (let j = 1; j <= a; j++) {
         let rowDiv = document.createElement("div");
         rowDiv.classList.toggle("row");
