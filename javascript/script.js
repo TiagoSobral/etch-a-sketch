@@ -14,6 +14,10 @@ divBtn.append(button);
 button.addEventListener("click", () => {
    userAnswer = prompt("Choose a Number:");
    number = Number(userAnswer);
+   const allColumns = document.querySelectorAll(".column");
+   for (element of allColumns) {
+    grid.removeChild(element);
+   };
    gridLoop(number);
 });
 
