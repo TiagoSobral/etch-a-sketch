@@ -14,7 +14,6 @@ divBtn.append(button);
 button.addEventListener("click", () => {
    userAnswer = prompt("Choose a Number from 1-100:");
    number = Number(userAnswer); 
-   alert(number);
     if (number > 100 || number < 1) {
         alert("You chose outside the range! Try again!");
     }
@@ -33,40 +32,55 @@ function gridLoop(a) {
         a = 16;
     }
 
-for (let i = 1; i <= a; i++) {
-    let columnDiv = document.createElement("div");
-    columnDiv.classList.toggle("column");
-    grid.appendChild(columnDiv);
+    for (let i = 1; i <= a; i++) {
+        let columnDiv = document.createElement("div");
+        columnDiv.classList.toggle("column");
+        grid.appendChild(columnDiv);
     
     for (let j = 1; j <= a; j++) {
         let rowDiv = document.createElement("div");
         rowDiv.classList.toggle("row");
         columnDiv.appendChild(rowDiv);
+
+        rowDiv.addEventListener("mouseenter", () => {
+            colorArray = [];
+            let max = 255;
+            for (let i = 1; i <= 3; i++) {
+                rndColor = Math.floor(Math.random() * max)
+                colorArray.push(rndColor); 
+            };
+            rowDiv.style.backgroundColor = `rgb(${colorArray[0]},${colorArray[1]},${colorArray[2]})`;
+        });
+        
     }
-}};
+}
+};
 
 gridLoop();
 
-const columns = document.querySelectorAll(".column");
-const rows = document.querySelectorAll(".row");
+// function randomRGB () {
+//     colorArray = [];
+//     let max = 255;
+//     for (let i = 1; i <= 3; i++) {
+//         rndColor = Math.floor(Math.random() * max)
+//         colorArray.push(rndColor); 
+//     };
+// };
 
-for (const row of rows) {
-    row.addEventListener("mouseenter", () => {
-        randomRGB();
-        console.log(colorArray[0])
-        row.style.backgroundColor = `rgb(${colorArray[0]},${colorArray[1]},${colorArray[2]})`;
-    });
-};
+// function sqrRandomColor () {
+// for (const row of rows) {
+//     row.addEventListener("mouseenter", () => {
+//         colorArray = [];
+//         let max = 255;
+//         for (let i = 1; i <= 3; i++) {
+//             rndColor = Math.floor(Math.random() * max)
+//             colorArray.push(rndColor); 
+//         };
 
-function askNumber() {
-    prompt("Choose a Number:");
-};
+//         console.log(colorArray[0],colorArray[1],colorArray[2])
+//         row.style.backgroundColor = `rgb(${colorArray[0]},${colorArray[1]},${colorArray[2]})`;
+//     });
+// };
+// };
 
-function randomRGB () {
-    colorArray = [];
-    let max = 255;
-    for (let i = 1; i <= 3; i++) {
-       rndColor = Math.floor(Math.random() * max)
-      colorArray.push(rndColor); 
-    }
-};
+// sqrRandomColor();
