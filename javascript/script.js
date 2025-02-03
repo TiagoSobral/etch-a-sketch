@@ -3,6 +3,8 @@ const grid = document.querySelector(".grid");
 const divBtn = document.createElement("div");
 const button = document.createElement("button");
 
+let squareOpacity = 0;
+
 button.textContent = "Set a Grid Number!";
 
 divBtn.classList.toggle("button");
@@ -39,48 +41,23 @@ function gridLoop(a) {
     
     for (let j = 1; j <= a; j++) {
         let rowDiv = document.createElement("div");
+        let squareOpacity = 0;
         rowDiv.classList.toggle("row");
         columnDiv.appendChild(rowDiv);
-
+        
         rowDiv.addEventListener("mouseenter", () => {
+            squareOpacity += 10;
             colorArray = [];
             let max = 255;
             for (let i = 1; i <= 3; i++) {
                 rndColor = Math.floor(Math.random() * max)
                 colorArray.push(rndColor); 
             };
-            rowDiv.style.backgroundColor = `rgb(${colorArray[0]},${colorArray[1]},${colorArray[2]})`;
+            rowDiv.style.backgroundColor = `rgb(${colorArray[0]},${colorArray[1]},${colorArray[2]}, ${squareOpacity}%)`;
         });
-        
     }
 }
 };
 
 gridLoop();
 
-// function randomRGB () {
-//     colorArray = [];
-//     let max = 255;
-//     for (let i = 1; i <= 3; i++) {
-//         rndColor = Math.floor(Math.random() * max)
-//         colorArray.push(rndColor); 
-//     };
-// };
-
-// function sqrRandomColor () {
-// for (const row of rows) {
-//     row.addEventListener("mouseenter", () => {
-//         colorArray = [];
-//         let max = 255;
-//         for (let i = 1; i <= 3; i++) {
-//             rndColor = Math.floor(Math.random() * max)
-//             colorArray.push(rndColor); 
-//         };
-
-//         console.log(colorArray[0],colorArray[1],colorArray[2])
-//         row.style.backgroundColor = `rgb(${colorArray[0]},${colorArray[1]},${colorArray[2]})`;
-//     });
-// };
-// };
-
-// sqrRandomColor();
